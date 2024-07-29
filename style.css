@@ -1,0 +1,25 @@
+/* this css is global */
+
+@media (max-width: 480px) {
+    /* Styles pour les téléphones portables en mode portrait */
+}
+
+@media (max-width: 767px) {
+    /* Styles pour les téléphones portables en mode paysage */
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Styles pour les tablettes en mode portrait */
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+    /* Styles pour les tablettes en mode paysage */
+}
+
+@media (min-width: 1280px) and (max-width: 1440px) {
+    /* Styles pour les ordinateurs portables et petits écrans de bureau */
+}
+
+@media (min-width: 1440px) {
+    /* Styles pour les grands écrans de bureau */
+}
