@@ -1,0 +1,65 @@
+@media (max-width: 480px) {
+    /* Styles pour les téléphones portables en mode portrait */
+}
+
+@media (max-width: 767px) {
+    /* Styles pour les téléphones portables en mode paysage */
+}
+
+header {
+    height: 64px;
+    padding: 8px;
+    background-color: #FFFFFF;
+    border-bottom-style: solid;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+
+
+    a {
+        font-size: 1.5em;
+    }
+}
+
+.content {
+    margin-top: 36px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+
+}
+
+.divider {
+    width: 100%;
+    border-top-style: double;
+}
+
+.profile {
+    width: 100%;
+    max-width: 85%;
+    max-height: 320px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: start;
+    width: 100%;
+    /* padding-left: 80px; */
+    /* padding-right: 80px; */
+    ul {
+        li {
+            font-size: 1.2em;
+        }
+    }
+}

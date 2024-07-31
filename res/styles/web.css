@@ -1,0 +1,7 @@
+@media (min-width: 1280px) and (max-width: 1440px) {
+    /* Styles pour les ordinateurs portables et petits écrans de bureau */
+}
+
+@media (min-width: 1440px) {
+    /* Styles pour les grands écrans de bureau */
+}

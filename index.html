@@ -9,10 +9,15 @@
         <title>CV : Munsch Yohann</title>
     </head>
     <body>
-       <nav>
-           <a href="./res/view/home.html" onclick="navigate(event,'/')">Home</a>
-           <a href="./res/view/second.html" onclick="navigate(event,'/second')">Second</a>
-       </nav>
+        <header>
+            <a onclick="AppNavigator('/')">Home</a>
+            <a onclick="AppNavigator('/about')">About</a>
+            <a onclick="AppNavigator('/task')">Task</a>
+        </header>
+        <div class="content" id="content"></div>
+        <footer>
+
+        </footer>
+        <script type="module" src="res/functions/nav.js"></script>
     </body>
-    <script src="script.js"></script>
 </html>
