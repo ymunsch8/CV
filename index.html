@@ -1,23 +1,52 @@
-<!-- this html is global -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="application-version" content="0.1.5">
+  <title>Yohann Munsch — Curriculum Vitæ</title>
+  <link rel="stylesheet" href="Verso — Paper CV/styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+  <link rel="stylesheet" href="res/styles/cv.css?v=0.1.5">
+</head>
+<body class="desk">
+  <div id="cv-root" class="desk-wrap ink-oxblood"></div>
+  <script>
+    /**
+     * Charge cv.js avec invalidation de cache pour éviter une version obsolète
+     * (ancien sélecteur #cv-container qui laissait la page vide).
+     * @param {string} version - Numéro de version du bundle JS.
+     */
+    function loadCvScript(version) {
+      var script = document.createElement('script');
+      script.src = 'cv.js?v=' + encodeURIComponent(version);
+      script.onload = function () {
+        if (typeof initCV === 'function') {
+          initCV();
+          return;
+        }
+        showLoadError();
+      };
+      script.onerror = showLoadError;
+      document.body.appendChild(script);
+    }
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>CV : Munsch Yohann</title>
-    </head>
-    <body>
-        <header>
-            <a onclick="AppNavigator('/')">Home</a>
-            <a onclick="AppNavigator('/about')">About</a>
-            <a onclick="AppNavigator('/task')">Task</a>
-        </header>
-        <div class="content" id="content"></div>
-        <footer>
+    /** Affiche un message si le rendu JS échoue. */
+    function showLoadError() {
+      var root = document.getElementById('cv-root');
+      if (!root || root.innerHTML.trim()) return;
+      root.innerHTML =
+        '<p style="padding:2rem;font-family:Georgia,serif;color:#2c2618">' +
+        'Impossible de charger le CV. Rechargez la page avec ' +
+        '<strong>Cmd+Shift+R</strong> (Mac) ou <strong>Ctrl+Shift+R</strong> (Windows).' +
+        '</p>';
+    }
 
-        </footer>
-        <script type="module" src="res/functions/nav.js"></script>
-    </body>
+    loadCvScript('0.1.5');
+  </script>
+</body>
 </html>

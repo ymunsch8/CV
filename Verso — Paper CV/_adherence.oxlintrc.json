@@ -1,0 +1,341 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/buttons/**",
+              "components/callouts/**",
+              "components/contact/**",
+              "components/experience/**",
+              "components/section/**",
+              "components/tags/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Cormorant Garamond|EB Garamond))/i]",
+        "message": "Font not provided by the design system. Available: Cormorant Garamond, EB Garamond."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|variant|size|icon|iconRight|href|onClick|disabled|fullWidth|type|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: children, variant, size, icon, iconRight, href, onClick, disabled, fullWidth, type."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|secondary|ghost)$/]",
+        "message": "<Button> variant must be one of 'primary' | 'secondary' | 'ghost'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<Button> size must be one of 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:button|submit|reset)$/]",
+        "message": "<Button> type must be one of 'button' | 'submit' | 'reset'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Callout'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|title|cite|icon|children|key|ref|className|style|children)$/]",
+        "message": "<Callout> doesn't accept that prop. Declared props: variant, title, cite, icon, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Callout'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:note|quote|aside)$/]",
+        "message": "<Callout> variant must be one of 'note' | 'quote' | 'aside'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ContactLink'] > JSXAttribute > JSXIdentifier[name!=/^(?:icon|label|value|href|variant|key|ref|className|style|children)$/]",
+        "message": "<ContactLink> doesn't accept that prop. Declared props: icon, label, value, href, variant."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ContactLink'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:inline|block)$/]",
+        "message": "<ContactLink> variant must be one of 'inline' | 'block'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Experience'] > JSXAttribute > JSXIdentifier[name!=/^(?:role|org|orgHref|dates|location|summary|bullets|tags|key|ref|className|style|children)$/]",
+        "message": "<Experience> doesn't accept that prop. Declared props: role, org, orgHref, dates, location, summary, bullets, tags."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SectionHeader'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|ordinal|title|rule|key|ref|className|style|children)$/]",
+        "message": "<SectionHeader> doesn't accept that prop. Declared props: label, ordinal, title, rule."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SkillTag'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|variant|accent|level|key|ref|className|style|children)$/]",
+        "message": "<SkillTag> doesn't accept that prop. Declared props: children, variant, accent, level."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SkillTag'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:outline|solid|ghost)$/]",
+        "message": "<SkillTag> variant must be one of 'outline' | 'solid' | 'ghost'."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Button": {
+        "replaces": []
+      },
+      "Callout": {
+        "replaces": []
+      },
+      "ContactLink": {
+        "replaces": []
+      },
+      "Experience": {
+        "replaces": []
+      },
+      "SectionHeader": {
+        "replaces": []
+      },
+      "SkillTag": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--accent",
+      "--accent-deep",
+      "--accent-soft",
+      "--baseline",
+      "--border-double",
+      "--border-hair",
+      "--border-ink",
+      "--content-max",
+      "--dur",
+      "--dur-fast",
+      "--dur-slow",
+      "--ease-paper",
+      "--font-display",
+      "--font-label",
+      "--font-serif",
+      "--forest-500",
+      "--forest-600",
+      "--forest-700",
+      "--fs-base",
+      "--fs-body",
+      "--fs-display",
+      "--fs-fine",
+      "--fs-h1",
+      "--fs-h2",
+      "--fs-h3",
+      "--fs-h4",
+      "--fs-label",
+      "--fs-lead",
+      "--fs-small",
+      "--fw-bold",
+      "--fw-medium",
+      "--fw-regular",
+      "--fw-semibold",
+      "--gap-block",
+      "--gap-section",
+      "--gap-tight",
+      "--grain-opacity",
+      "--grain-url",
+      "--ink-300",
+      "--ink-400",
+      "--ink-500",
+      "--ink-600",
+      "--ink-700",
+      "--ink-800",
+      "--ink-900",
+      "--lh-body",
+      "--lh-relaxed",
+      "--lh-snug",
+      "--lh-tight",
+      "--link",
+      "--link-hover",
+      "--measure",
+      "--measure-narrow",
+      "--navy-500",
+      "--navy-600",
+      "--navy-700",
+      "--oxblood-500",
+      "--oxblood-600",
+      "--oxblood-700",
+      "--page-pad-x",
+      "--page-pad-y",
+      "--page-width",
+      "--paper-0",
+      "--paper-1",
+      "--paper-2",
+      "--paper-3",
+      "--paper-edge",
+      "--radius-0",
+      "--radius-1",
+      "--radius-2",
+      "--radius-pill",
+      "--rule",
+      "--rule-strong",
+      "--selection-bg",
+      "--shadow-press",
+      "--shadow-raise",
+      "--shadow-sheet",
+      "--shadow-warm",
+      "--space-0",
+      "--space-1",
+      "--space-10",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-7",
+      "--space-8",
+      "--space-9",
+      "--surface-deckle",
+      "--surface-page",
+      "--surface-raised",
+      "--surface-sunken",
+      "--text-body",
+      "--text-faint",
+      "--text-muted",
+      "--text-on-accent",
+      "--text-strong",
+      "--tracking-label",
+      "--tracking-normal",
+      "--tracking-tight",
+      "--tracking-wide",
+      "--white"
+    ],
+    "tokenKinds": {
+      "--paper-0": "color",
+      "--paper-1": "color",
+      "--paper-2": "color",
+      "--paper-3": "color",
+      "--paper-edge": "color",
+      "--ink-900": "color",
+      "--ink-800": "color",
+      "--ink-700": "color",
+      "--ink-600": "color",
+      "--ink-500": "color",
+      "--ink-400": "color",
+      "--ink-300": "color",
+      "--oxblood-700": "color",
+      "--oxblood-600": "color",
+      "--oxblood-500": "color",
+      "--navy-700": "color",
+      "--navy-600": "color",
+      "--navy-500": "color",
+      "--forest-700": "color",
+      "--forest-600": "color",
+      "--forest-500": "color",
+      "--white": "color",
+      "--shadow-warm": "shadow",
+      "--surface-page": "color",
+      "--surface-raised": "color",
+      "--surface-sunken": "color",
+      "--surface-deckle": "color",
+      "--text-strong": "font",
+      "--text-body": "font",
+      "--text-muted": "font",
+      "--text-faint": "font",
+      "--text-on-accent": "font",
+      "--rule": "color",
+      "--rule-strong": "color",
+      "--accent": "color",
+      "--accent-deep": "color",
+      "--accent-soft": "color",
+      "--link": "color",
+      "--link-hover": "color",
+      "--selection-bg": "color",
+      "--font-display": "font",
+      "--font-serif": "font",
+      "--font-label": "font",
+      "--fs-display": "font",
+      "--fs-h1": "font",
+      "--fs-h2": "font",
+      "--fs-h3": "spacing",
+      "--fs-h4": "spacing",
+      "--fs-lead": "spacing",
+      "--fs-body": "spacing",
+      "--fs-base": "spacing",
+      "--fs-small": "spacing",
+      "--fs-label": "spacing",
+      "--fs-fine": "spacing",
+      "--fw-regular": "font",
+      "--fw-medium": "font",
+      "--fw-semibold": "font",
+      "--fw-bold": "font",
+      "--lh-tight": "font",
+      "--lh-snug": "font",
+      "--lh-body": "font",
+      "--lh-relaxed": "font",
+      "--tracking-tight": "font",
+      "--tracking-normal": "font",
+      "--tracking-label": "font",
+      "--tracking-wide": "font",
+      "--measure": "other",
+      "--measure-narrow": "other",
+      "--space-0": "spacing",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-7": "spacing",
+      "--space-8": "spacing",
+      "--space-9": "spacing",
+      "--space-10": "spacing",
+      "--page-width": "spacing",
+      "--page-pad-x": "spacing",
+      "--page-pad-y": "spacing",
+      "--content-max": "spacing",
+      "--baseline": "spacing",
+      "--gap-section": "spacing",
+      "--gap-block": "spacing",
+      "--gap-tight": "spacing",
+      "--radius-0": "radius",
+      "--radius-1": "radius",
+      "--radius-2": "radius",
+      "--radius-pill": "radius",
+      "--border-hair": "color",
+      "--border-ink": "color",
+      "--border-double": "color",
+      "--shadow-sheet": "shadow",
+      "--shadow-raise": "shadow",
+      "--shadow-press": "shadow",
+      "--ease-paper": "other",
+      "--dur-fast": "other",
+      "--dur": "other",
+      "--dur-slow": "other",
+      "--grain-url": "other",
+      "--grain-opacity": "other"
+    },
+    "fontFamilies": [
+      "Cormorant Garamond",
+      "EB Garamond"
+    ]
+  }
+}

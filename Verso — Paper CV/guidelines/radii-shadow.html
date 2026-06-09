@@ -1,0 +1,20 @@
+<!-- @dsCard group="Spacing" viewport="700x180" name="Radii & shadow" subtitle="Paper barely rounds; warm soft shadows" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--surface-sunken); padding: 26px 28px; display: flex; gap: 26px; align-items: flex-end; }
+  .item { text-align: center; }
+  .box { width: 96px; height: 70px; background: var(--surface-page); border: 1px solid rgba(31,26,18,.1); }
+  .nm { font-family: var(--font-serif); font-variant: small-caps; letter-spacing:.06em; font-size: .76rem; color: var(--text-muted); margin-top: 9px; }
+</style>
+</head>
+<body>
+  <div class="item"><div class="box" style="border-radius:var(--radius-0)"></div><div class="nm">radius-0</div></div>
+  <div class="item"><div class="box" style="border-radius:var(--radius-1)"></div><div class="nm">radius-1 · 2px</div></div>
+  <div class="item"><div class="box" style="border:0;box-shadow:var(--shadow-raise);border-radius:var(--radius-1)"></div><div class="nm">shadow-raise</div></div>
+  <div class="item"><div class="box" style="border:0;box-shadow:var(--shadow-sheet);border-radius:var(--radius-1)"></div><div class="nm">shadow-sheet</div></div>
+</body>
+</html>

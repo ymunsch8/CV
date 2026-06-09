@@ -1,0 +1,101 @@
+<!-- @dsCard group="Contact" viewport="1000x720" name="Contact / About page" subtitle="Bio, contact blocks, and a note-to-the-printer form" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eleanor Hart — About &amp; Contact</title>
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+<style>
+  body { margin: 0; }
+  .wrap { min-height: 100vh; padding: clamp(20px,5vw,56px) clamp(12px,4vw,48px); }
+
+  .bar { max-width: 60rem; margin: 0 auto var(--space-6); display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand .mk { font-family: var(--font-display); font-weight: 600; font-size: 1.4rem; color: var(--paper-0); background: var(--accent); width: 34px; height: 34px; display: grid; place-items: center; border-radius: var(--radius-1); }
+  .brand .nm { font-family: var(--font-display); font-weight: 600; font-size: 1.3rem; color: var(--text-strong); white-space: nowrap; }
+  .back { font-family: var(--font-label); font-variant: small-caps; font-weight: 600; letter-spacing: .12em; font-size: .8rem; color: var(--text-muted); text-decoration: none; display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
+  .back:hover { color: var(--accent); }
+
+  .sheet { max-width: 60rem; margin: 0 auto; padding: clamp(2rem,5vw,3.5rem) clamp(1.5rem,5vw,3.5rem); }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,5vw,4rem); }
+  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; gap: var(--space-7); } }
+
+  .eyebrow { font-family: var(--font-label); font-variant: small-caps; font-weight: 600; letter-spacing: var(--tracking-wide); font-size: .8rem; color: var(--accent); margin: 0 0 var(--space-3); }
+  h1 { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-h1); line-height: 1.05; color: var(--text-strong); margin: 0 0 var(--space-5); }
+  .bio p { font-family: var(--font-serif); font-size: var(--fs-body); line-height: 1.65; color: var(--text-body); margin: 0 0 var(--space-4); max-width: 42ch; }
+  .bio p.lead { font-style: italic; font-size: var(--fs-lead); color: var(--text-body); }
+  .bio .sign { font-family: var(--font-display); font-style: italic; font-size: 1.9rem; color: var(--accent); margin-top: var(--space-5); }
+
+  .portrait { background: var(--surface-raised); border: 1px solid var(--paper-edge); box-shadow: var(--shadow-sheet); padding: 12px; border-radius: var(--radius-1); margin-bottom: var(--space-6); }
+  .portrait .img { aspect-ratio: 1/1; background: repeating-linear-gradient(45deg, var(--paper-2) 0 14px, var(--paper-3) 14px 28px); display: grid; place-items: center; color: var(--ink-400); border: 1px solid var(--paper-edge); }
+  .portrait .img i { font-size: 2.4rem; }
+
+  .lbl { font-family: var(--font-label); font-variant: small-caps; font-weight: 600; letter-spacing: var(--tracking-label); font-size: var(--fs-label); color: var(--text-muted); display: block; border-bottom: 1px solid var(--rule); padding-bottom: var(--space-2); margin-bottom: var(--space-3); }
+  .blocks { display: grid; gap: var(--space-3); margin-bottom: var(--space-6); }
+  .block { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: 1px solid var(--rule); border-radius: var(--radius-1); background: var(--surface-raised); text-decoration: none; transition: border-color var(--dur) var(--ease-paper); }
+  .block:hover { border-color: var(--accent); }
+  .block i { color: var(--accent); font-size: 1.35rem; }
+  .block .k { font-family: var(--font-label); font-variant: small-caps; letter-spacing: .12em; font-size: .7rem; color: var(--text-faint); }
+  .block .v { font-family: var(--font-serif); font-size: 1rem; color: var(--text-strong); }
+
+  /* note form */
+  .note-form { margin-top: var(--space-4); }
+  .field { margin-bottom: var(--space-3); }
+  .field label { font-family: var(--font-label); font-variant: small-caps; letter-spacing: .1em; font-size: .72rem; color: var(--text-muted); display: block; margin-bottom: 5px; }
+  .field input, .field textarea { width: 100%; box-sizing: border-box; font-family: var(--font-serif); font-size: 1rem; color: var(--text-strong); background: var(--surface-raised); border: 1px solid var(--rule); border-radius: var(--radius-1); padding: 10px 12px; transition: border-color var(--dur) var(--ease-paper); }
+  .field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); }
+  .field textarea { resize: vertical; min-height: 92px; }
+  .submit { display: inline-flex; align-items: center; gap: 9px; padding: 11px 22px; font-family: var(--font-label); font-variant: small-caps; font-weight: 600; letter-spacing: .14em; font-size: .82rem; color: var(--text-on-accent); background: var(--accent); border: 1.5px solid var(--accent); border-radius: var(--radius-1); cursor: pointer; box-shadow: var(--shadow-raise); transition: background var(--dur) var(--ease-paper), transform var(--dur-fast) var(--ease-paper); }
+  .submit:hover { background: var(--accent-deep); }
+  .submit:active { transform: translateY(1.5px); }
+  .sent { font-family: var(--font-serif); font-style: italic; color: var(--accent); margin-top: var(--space-3); display: none; }
+  .sent.on { display: block; }
+</style>
+</head>
+<body class="desk ink-oxblood">
+  <div class="wrap">
+    <div class="bar">
+      <div class="brand"><span class="mk">V</span><span class="nm">Eleanor Hart</span></div>
+      <a class="back" href="../portfolio/index.html"><i class="ph-bold ph-arrow-left"></i>Back to work</a>
+    </div>
+
+    <article class="paper sheet">
+      <div class="grid">
+        <div class="bio">
+          <p class="eyebrow">About</p>
+          <h1>A printer, slightly out of her century.</h1>
+          <p class="lead">I learned to bind books before I learned to drive, and I have never quite caught up with the modern world — happily.</p>
+          <p>My studio sits in a converted dairy in the Five Valleys, full of cast-iron presses and drawers of metal type rescued from closing-down sales. I set everything by hand: it is slower, it is fussier, and it is the only way I know to make a page feel inevitable.</p>
+          <p>I take on a small number of private commissions each year — wedding readings, memorial editions, the odd stubbornly beautiful poem. If you have something worth pressing into paper, write to me.</p>
+          <div class="sign">— Eleanor</div>
+        </div>
+
+        <div>
+          <div class="portrait">
+            <div class="img"><i class="ph-light ph-image"></i></div>
+          </div>
+
+          <span class="lbl">Find me</span>
+          <div class="blocks">
+            <a class="block" href="mailto:eleanor@verso.press"><i class="ph-light ph-envelope-simple"></i><span><span class="k">Email</span><br><span class="v">eleanor@verso.press</span></span></a>
+            <a class="block" href="#"><i class="ph-light ph-map-pin"></i><span><span class="k">Studio</span><br><span class="v">The Old Dairy, Gloucestershire</span></span></a>
+            <a class="block" href="#"><i class="ph-light ph-instagram-logo"></i><span><span class="k">Instagram</span><br><span class="v">@verso.press</span></span></a>
+          </div>
+
+          <span class="lbl">Send a note</span>
+          <form class="note-form" onsubmit="event.preventDefault(); this.reset(); document.getElementById('sent').classList.add('on');">
+            <div class="field"><label>Your name</label><input type="text" placeholder="Jan Tschichold" required></div>
+            <div class="field"><label>Your note</label><textarea placeholder="I have a poem that wants to live on cotton paper…" required></textarea></div>
+            <button class="submit" type="submit"><i class="ph-bold ph-paper-plane-tilt"></i>Send to the press</button>
+            <div class="sent" id="sent">Thank you — your note is set. I'll write back within the week.</div>
+          </form>
+        </div>
+      </div>
+    </article>
+  </div>
+</body>
+</html>

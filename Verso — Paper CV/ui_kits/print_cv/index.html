@@ -1,0 +1,179 @@
+<!-- @dsCard group="Print" viewport="794x1010" name="Print-ready CV (A4)" subtitle="One-page A4 résumé, print-optimized" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eleanor Hart — CV (Print)</title>
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+<style>
+  :root { --a4-w: 794px; --a4-h: 1123px; }
+  body { margin: 0; background: var(--paper-2); }
+
+  .toolbar { position: sticky; top: 0; z-index: 10; display: flex; justify-content: center; gap: 14px; padding: 16px; background: color-mix(in srgb, var(--paper-2) 88%, transparent); backdrop-filter: blur(2px); }
+  .toolbar button { display: inline-flex; align-items: center; gap: 9px; padding: 10px 20px; font-family: var(--font-label); font-variant: small-caps; font-weight: 600; letter-spacing: .14em; font-size: .8rem; border-radius: var(--radius-1); cursor: pointer; transition: background var(--dur) var(--ease-paper); }
+  .print-btn { background: var(--accent); color: var(--text-on-accent); border: 1.5px solid var(--accent); }
+  .print-btn:hover { background: var(--accent-deep); }
+  .hint { font-family: var(--font-serif); font-style: italic; color: var(--text-faint); font-size: .85rem; align-self: center; }
+
+  .stage { display: flex; justify-content: center; padding: 0 16px 48px; }
+
+  /* the A4 sheet */
+  .a4 { width: var(--a4-w); min-height: var(--a4-h); background: #fdfaf2; box-shadow: var(--shadow-sheet); padding: 56px 60px; box-sizing: border-box; color: var(--ink-800); }
+
+  .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; border-bottom: 2.5px solid var(--ink-800); padding-bottom: 14px; }
+  .head h1 { font-family: var(--font-display); font-weight: 600; font-size: 2.7rem; line-height: 1.02; letter-spacing: -.01em; color: var(--ink-900); margin: 0; white-space: nowrap; }
+  .head .role { font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; color: var(--ink-600); margin: 4px 0 0; }
+  .head .ct { text-align: right; font-family: var(--font-serif); font-size: .82rem; line-height: 1.5; color: var(--ink-600); }
+  .head .ct a { color: var(--accent); text-decoration: none; }
+
+  .cols { display: grid; grid-template-columns: 1fr 13rem; gap: 36px; margin-top: 26px; }
+
+  .sec { margin-bottom: 22px; }
+  .sec:last-child { margin-bottom: 0; }
+  .sec-h { font-family: var(--font-label); font-variant: small-caps; font-weight: 600; letter-spacing: .18em; font-size: .78rem; color: var(--accent); border-bottom: 1px solid var(--ink-300); padding-bottom: 4px; margin-bottom: 11px; }
+
+  .lead { font-family: var(--font-serif); font-style: italic; font-size: 1.02rem; line-height: 1.5; color: var(--ink-700); margin: 0; }
+
+  .job { margin-bottom: 14px; }
+  .job:last-child { margin-bottom: 0; }
+  .job .top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .job h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.18rem; color: var(--ink-900); margin: 0; line-height: 1.15; white-space: nowrap; }
+  .job .yr { font-family: var(--font-serif); font-feature-settings:'onum' 1; font-size: .78rem; color: var(--ink-500); white-space: nowrap; }
+  .job .org { font-family: var(--font-serif); font-size: .95rem; color: var(--accent); }
+  .job .org .loc { color: var(--ink-500); font-style: italic; }
+  .job ul { margin: 6px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 3px; }
+  .job li { position: relative; padding-left: 16px; font-family: var(--font-serif); font-size: .92rem; line-height: 1.42; color: var(--ink-700); }
+  .job li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+
+  .rail .sec-h { margin-bottom: 9px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 5px; }
+  .chip { font-family: var(--font-label); font-variant: small-caps; font-size: .74rem; letter-spacing: .04em; color: var(--ink-700); border: 1px solid var(--ink-300); border-radius: 999px; padding: 2px 9px 3px; white-space: nowrap; }
+  .kv { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-serif); font-size: .9rem; color: var(--ink-700); padding: 3px 0; border-bottom: 1px dotted var(--ink-300); }
+  .kv:last-child { border-bottom: 0; }
+  .kv .s { font-family: var(--font-label); font-variant: small-caps; letter-spacing: .06em; font-size: .72rem; color: var(--ink-500); }
+  .ed h4 { font-family: var(--font-display); font-weight: 600; font-size: 1rem; color: var(--ink-900); margin: 0; }
+  .ed .m { font-family: var(--font-serif); font-style: italic; font-size: .85rem; color: var(--ink-600); }
+  .ed .y { font-family: var(--font-serif); font-feature-settings:'onum' 1; font-size: .76rem; color: var(--ink-500); }
+
+  @media print {
+    @page { size: A4; margin: 0; }
+    body { background: #fff; }
+    .toolbar, .hint { display: none; }
+    .stage { padding: 0; }
+    .a4 { box-shadow: none; width: 100%; min-height: 100vh; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body class="ink-oxblood">
+  <div class="toolbar">
+    <button class="print-btn" onclick="window.print()"><i class="ph-bold ph-printer"></i>Print / Save as PDF</button>
+    <span class="hint">A4 · fits on a single page</span>
+  </div>
+
+  <div class="stage">
+    <article class="a4">
+      <header class="head">
+        <div>
+          <h1>Eleanor Hart</h1>
+          <p class="role">Master Printer &amp; Bookbinder</p>
+        </div>
+        <div class="ct">
+          <a href="mailto:eleanor@verso.press">eleanor@verso.press</a><br>
+          +44 1453 700 200<br>
+          Gloucestershire, UK<br>
+          verso.press
+        </div>
+      </header>
+
+      <div class="cols">
+        <main>
+          <div class="sec">
+            <div class="sec-h">Profile</div>
+            <p class="lead">For twenty years I have set metal type by hand. I restore nineteenth-century presses, cut new faces from old specimens, and teach the slow discipline of letterpress to a new generation of printers.</p>
+          </div>
+
+          <div class="sec">
+            <div class="sec-h">Experience</div>
+
+            <div class="job">
+              <div class="top"><h3>Master Printer</h3><span class="yr">2014 – Present</span></div>
+              <div class="org">The Whittington Press <span class="loc">· Gloucestershire</span></div>
+              <ul>
+                <li>Set and printed twelve limited editions, each under 300 copies, from hand-composed metal type.</li>
+                <li>Restored a 1923 Albion hand-press to full working order and trained four apprentices on it.</li>
+                <li>Built the studio's specimen archive — 600+ founts catalogued and digitised.</li>
+              </ul>
+            </div>
+
+            <div class="job">
+              <div class="top"><h3>Studio Compositor</h3><span class="yr">2006 – 2014</span></div>
+              <div class="org">Gwasg Gregynog <span class="loc">· Powys, Wales</span></div>
+              <ul>
+                <li>Composed and proofed text for the press's fine-bound poetry editions.</li>
+                <li>Introduced a colour-register workflow that halved make-ready time.</li>
+              </ul>
+            </div>
+
+            <div class="job">
+              <div class="top"><h3>Apprentice Bookbinder</h3><span class="yr">2002 – 2006</span></div>
+              <div class="org">Shepherds, Sangorski &amp; Sutcliffe <span class="loc">· London</span></div>
+              <ul>
+                <li>Trained in traditional case-binding, gold-tooling, and edge-gilding.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-h">Selected Editions</div>
+            <div class="job">
+              <ul>
+                <li><em>The Hours of Light</em> — letterpress, 240 copies (2024).</li>
+                <li><em>Marginalia</em> — hand-bound, gold-tooled, private commission (2023).</li>
+                <li><em>A Field Alphabet</em> — wood-type broadside set (2022).</li>
+              </ul>
+            </div>
+          </div>
+        </main>
+
+        <aside class="rail">
+          <div class="sec ed">
+            <div class="sec-h">Education</div>
+            <h4>MA, Book Arts &amp; Crafts</h4>
+            <div class="m">Camberwell College of Arts</div>
+            <div class="y">1998 – 2002</div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-h">Craft</div>
+            <div class="chips">
+              <span class="chip">Hand composition</span>
+              <span class="chip">Letterpress</span>
+              <span class="chip">Bookbinding</span>
+              <span class="chip">Type design</span>
+              <span class="chip">Restoration</span>
+              <span class="chip">Edge-gilding</span>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-h">Languages</div>
+            <div class="kv"><span>English</span><span class="s">Native</span></div>
+            <div class="kv"><span>Welsh</span><span class="s">Fluent</span></div>
+            <div class="kv"><span>German</span><span class="s">Reading</span></div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-h">Affiliations</div>
+            <div class="kv"><span>Fine Press Book Assoc.</span></div>
+            <div class="kv"><span>Designer Bookbinders</span></div>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </div>
+</body>
+</html>

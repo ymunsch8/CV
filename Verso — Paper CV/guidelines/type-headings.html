@@ -1,0 +1,23 @@
+<!-- @dsCard group="Type" viewport="700x250" name="Heading scale" subtitle="Cormorant Garamond, h1 → h3" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--surface-page); padding: 24px 32px; }
+  .row { display: flex; align-items: baseline; gap: 16px; border-bottom: var(--border-hair); padding: 10px 0; }
+  .row:last-child { border-bottom: 0; }
+  .tag { font-family: var(--font-serif); font-variant: small-caps; letter-spacing: .12em; font-size: .75rem; color: var(--text-faint); width: 64px; flex: none; }
+  h1,h2,h3 { margin: 0; font-family: var(--font-display); color: var(--text-strong); font-weight: 600; line-height: 1.1; }
+  h1 { font-size: var(--fs-h1); }
+  h2 { font-size: var(--fs-h2); }
+  h3 { font-size: var(--fs-h3); font-weight: 500; }
+</style>
+</head>
+<body>
+  <div class="row"><span class="tag">h1</span><h1>Selected Works</h1></div>
+  <div class="row"><span class="tag">h2</span><h2>Experience &amp; Craft</h2></div>
+  <div class="row"><span class="tag">h3</span><h3>The Gutenberg Press, Mainz</h3></div>
+</body>
+</html>
