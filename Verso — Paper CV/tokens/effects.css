@@ -1,0 +1,72 @@
+/* ============================================================
+   Verso — Effects
+   Borders, radii, shadows, and the paper grain. Vintage letterpress
+   means near-flat surfaces, hairline rules, and warm soft shadows —
+   no glossy elevation, no big rounding.
+   ============================================================ */
+
+:root {
+  /* ---- Radii (paper barely rounds) ---- */
+  --radius-0: 0;
+  --radius-1: 2px;     /* default — cut card                 */
+  --radius-2: 4px;
+  --radius-pill: 999px;/* skill tags only                    */
+
+  /* ---- Borders / rules ---- */
+  --border-hair: 1px solid var(--rule);
+  --border-ink: 1.5px solid var(--rule-strong);
+  --border-double: 3px double var(--rule-strong);
+
+  /* ---- Shadows (warm, soft — a sheet resting on a desk) ---- */
+  --shadow-sheet:
+    0 1px 1px rgba(var(--shadow-warm) / 0.04),
+    0 8px 24px rgba(var(--shadow-warm) / 0.10),
+    0 28px 60px rgba(var(--shadow-warm) / 0.08);
+  --shadow-raise:
+    0 1px 2px rgba(var(--shadow-warm) / 0.06),
+    0 4px 14px rgba(var(--shadow-warm) / 0.08);
+  --shadow-press: inset 0 1px 3px rgba(var(--shadow-warm) / 0.10);
+
+  /* ---- Motion (restrained, ink-settling) ---- */
+  --ease-paper: cubic-bezier(0.2, 0.6, 0.2, 1); /* @kind other */
+  --dur-fast: 120ms; /* @kind other */
+  --dur: 220ms; /* @kind other */
+  --dur-slow: 420ms; /* @kind other */
+
+  /* ---- Paper grain (subtle fiber texture, layered on surfaces) ---- */
+  --grain-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E"); /* @kind other */
+  --grain-opacity: 0.035; /* @kind other */
+}
+
+/* ============================================================
+   Paper surface helper — a warm sheet with grain & soft shadow.
+   Apply .paper to any block to make it read as a sheet of stock.
+   ============================================================ */
+.paper {
+  position: relative;
+  background-color: var(--surface-page);
+  box-shadow: var(--shadow-sheet);
+  border-radius: var(--radius-1);
+  isolation: isolate;
+}
+.paper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--grain-url);
+  background-size: 180px 180px;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+/* Full-bleed desk background behind a floating sheet */
+.desk {
+  background-color: var(--paper-2);
+  background-image:
+    radial-gradient(120% 80% at 50% -10%, rgba(var(--shadow-warm) / 0.05), transparent 60%),
+    var(--grain-url);
+  background-size: auto, 180px 180px;
+}

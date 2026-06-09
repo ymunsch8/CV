@@ -1,0 +1,24 @@
+<!-- @dsCard group="Brand" viewport="700x210" name="Rules & dividers" subtitle="Hairline, double rule, and section divider" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--surface-page); padding: 26px 32px; display: flex; flex-direction: column; gap: 22px; }
+  .label { font-family: var(--font-label); font-variant: small-caps; font-weight:600; letter-spacing: var(--tracking-label); font-size: .78rem; color: var(--text-faint); margin-bottom: 8px; }
+  .hair { border-top: var(--border-hair); }
+  .dbl { border-top: var(--border-double); }
+  .divider { display: flex; align-items: center; gap: 14px; }
+  .divider .line { flex: 1; border-top: var(--border-hair); }
+  .divider .mk { font-family: var(--font-display); color: var(--accent); font-size: 1.2rem; }
+</style>
+</head>
+<body>
+  <div><div class="label">hairline rule</div><div class="hair"></div></div>
+  <div><div class="label">double rule</div><div class="dbl"></div></div>
+  <div><div class="label">section divider</div>
+    <div class="divider"><span class="line"></span><span class="mk">&sect;</span><span class="line"></span></div>
+  </div>
+</body>
+</html>

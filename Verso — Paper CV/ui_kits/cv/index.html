@@ -1,0 +1,219 @@
+<!-- @dsCard group="CV" viewport="900x760" name="CV / Résumé sheet" subtitle="The flagship paper CV — header, profile, experience, rail" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eleanor Hart — Curriculum Vitæ</title>
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+<style>
+  body { margin: 0; }
+  .desk-wrap { min-height: 100vh; padding: clamp(20px, 5vw, 64px) clamp(12px, 4vw, 48px); }
+
+  /* floating control bar */
+  .controls { max-width: var(--page-width); margin: 0 auto var(--space-5); display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; }
+  .press-switch { display: flex; align-items: center; gap: 10px; }
+  .press-switch .lbl { font-family: var(--font-label); font-variant: small-caps; letter-spacing: var(--tracking-label); font-size: .72rem; color: var(--text-muted); }
+  .swatch { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid rgba(31,26,18,.25); cursor: pointer; padding: 0; transition: transform var(--dur-fast) var(--ease-paper); }
+  .swatch[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--surface-sunken), 0 0 0 3.5px currentColor; }
+  .swatch:hover { transform: scale(1.12); }
+  .btn-dl { display: inline-flex; align-items: center; gap: 9px; padding: 10px 20px; font-family: var(--font-label); font-variant: small-caps; font-weight: 600; letter-spacing: .14em; font-size: .8125rem; color: var(--text-on-accent); background: var(--accent); border: 1.5px solid var(--accent); border-radius: var(--radius-1); cursor: pointer; box-shadow: var(--shadow-raise); transition: background var(--dur) var(--ease-paper), transform var(--dur-fast) var(--ease-paper); }
+  .btn-dl:hover { background: var(--accent-deep); }
+  .btn-dl:active { transform: translateY(1.5px); }
+
+  /* the sheet */
+  .sheet { max-width: var(--page-width); margin: 0 auto; padding: clamp(2.5rem,6vw,4.5rem) clamp(1.75rem,5vw,4rem); }
+
+  /* masthead */
+  .masthead { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-6); border-bottom: var(--border-double); padding-bottom: var(--space-5); margin-bottom: var(--space-6); }
+  .name { font-family: var(--font-display); font-weight: 600; font-size: clamp(2.75rem, 1.8rem + 3.4vw, 4.25rem); line-height: 1.0; letter-spacing: -.01em; color: var(--text-strong); margin: 0; white-space: nowrap; }
+  .role-line { font-family: var(--font-serif); font-style: italic; font-size: 1.3rem; color: var(--text-muted); margin: 12px 0 0; }
+  .masthead .mono { font-family: var(--font-display); font-weight: 600; font-size: 3.4rem; line-height: 1; color: var(--paper-0); background: var(--accent); width: 78px; height: 78px; display: grid; place-items: center; border-radius: var(--radius-1); flex: none; }
+
+  /* body grid */
+  .grid { display: grid; grid-template-columns: 1fr 15rem; gap: var(--space-7); }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; gap: var(--space-6); } .masthead { flex-direction: column; align-items: flex-start; } }
+
+  section { margin-bottom: var(--space-7); }
+  section:last-child { margin-bottom: 0; }
+
+  .sec-head { display: flex; align-items: baseline; gap: var(--space-4); margin-bottom: var(--space-4); }
+  .sec-head .ord { font-family: var(--font-display); font-feature-settings:'onum' 1; font-size: .95rem; color: var(--accent); }
+  .sec-head .lbl { font-family: var(--font-label); font-variant: small-caps; font-weight: 600; letter-spacing: var(--tracking-label); font-size: var(--fs-label); color: var(--text-muted); white-space: nowrap; }
+  .sec-head .line { flex: 1; border-top: 1px solid var(--rule); transform: translateY(-2px); }
+
+  .lead { font-family: var(--font-serif); font-style: italic; font-size: var(--fs-lead); line-height: 1.6; color: var(--text-body); margin: 0; max-width: 60ch; }
+
+  /* experience entry */
+  .entry { display: grid; grid-template-columns: 1fr auto; column-gap: var(--space-5); padding: var(--space-5) 0; border-top: 1px solid var(--rule); }
+  .entry:first-of-type { border-top: 0; padding-top: var(--space-2); }
+  .entry h3 { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-h3); line-height: 1.12; color: var(--text-strong); margin: 0; }
+  .entry .org { font-family: var(--font-serif); font-size: 1.05rem; color: var(--text-body); margin-top: 2px; }
+  .entry .org a { color: var(--accent); }
+  .entry .when { text-align: right; }
+  .entry .when .d { font-family: var(--font-serif); font-feature-settings:'onum' 1; font-size: .78rem; letter-spacing: .02em; color: var(--text-muted); white-space: nowrap; }
+  .entry .when .loc { font-family: var(--font-label); font-variant: small-caps; letter-spacing: .12em; font-size: .7rem; color: var(--text-faint); margin-top: 3px; }
+  .entry ul { grid-column: 1 / -1; list-style: none; margin: var(--space-3) 0 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); max-width: var(--measure); }
+  .entry li { position: relative; padding-left: var(--space-5); font-family: var(--font-serif); font-size: var(--fs-body); line-height: 1.5; color: var(--text-body); }
+  .entry li::before { content: "—"; position: absolute; left: var(--space-2); color: var(--accent); }
+
+  /* rail */
+  .rail section { margin-bottom: var(--space-6); }
+  .rail .lbl { font-family: var(--font-label); font-variant: small-caps; font-weight: 600; letter-spacing: var(--tracking-label); font-size: var(--fs-label); color: var(--text-muted); display: block; border-bottom: 1px solid var(--rule); padding-bottom: var(--space-2); margin-bottom: var(--space-3); }
+  .contact-row { display: flex; align-items: center; gap: 9px; font-family: var(--font-serif); font-size: .98rem; color: var(--text-body); text-decoration: none; padding: 3px 0; }
+  .contact-row i { color: var(--accent); font-size: 1.1rem; line-height: 0; }
+  .contact-row:hover { color: var(--accent); }
+  .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+  .tag { font-family: var(--font-label); font-variant: small-caps; font-size: .78rem; letter-spacing: .05em; color: var(--text-body); padding: 3px 11px 4px; border: 1px solid var(--rule); border-radius: var(--radius-pill); }
+  .tag.on { border-color: var(--accent); color: var(--accent); }
+  .lang { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-serif); font-size: .98rem; color: var(--text-body); padding: 4px 0; border-bottom: 1px dotted var(--rule); }
+  .lang .lvl { font-family: var(--font-label); font-variant: small-caps; letter-spacing: .08em; font-size: .74rem; color: var(--text-faint); }
+  .note { background: var(--surface-sunken); border-left: 3px solid var(--accent); border-radius: var(--radius-1); padding: var(--space-4); }
+  .note .lbl { border: 0; padding: 0; margin-bottom: 6px; }
+  .note p { font-family: var(--font-serif); font-size: .96rem; line-height: 1.5; color: var(--text-body); margin: 0; }
+
+  .colophon { margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); flex-wrap: wrap; }
+  .colophon span { font-family: var(--font-serif); font-style: italic; font-size: .82rem; color: var(--text-faint); }
+</style>
+</head>
+<body class="desk">
+  <div class="desk-wrap ink-oxblood" id="root">
+
+    <div class="controls">
+      <div class="press-switch">
+        <span class="lbl">Press</span>
+        <button class="swatch" data-ink="oxblood" aria-pressed="true" style="background:#7a2e22;color:#7a2e22" title="Oxblood"></button>
+        <button class="swatch" data-ink="navy" aria-pressed="false" style="background:#1f3a5f;color:#1f3a5f" title="Navy"></button>
+        <button class="swatch" data-ink="forest" aria-pressed="false" style="background:#3d5a40;color:#3d5a40" title="Forest"></button>
+      </div>
+      <button class="btn-dl" onclick="window.print()"><i class="ph-bold ph-download-simple"></i>Download CV</button>
+    </div>
+
+    <article class="paper sheet">
+      <header class="masthead">
+        <div>
+          <h1 class="name">Eleanor Hart</h1>
+          <p class="role-line">Master Printer &amp; Bookbinder</p>
+        </div>
+        <div class="mono">EH</div>
+      </header>
+
+      <div class="grid">
+        <main>
+          <section>
+            <div class="sec-head"><span class="ord">00</span><span class="lbl">Profile</span><span class="line"></span></div>
+            <p class="lead">For twenty years I have set metal type by hand, one slug at a time. I restore nineteenth-century presses, cut new faces from old specimens, and teach the slow discipline of letterpress to a new generation of printers.</p>
+          </section>
+
+          <section>
+            <div class="sec-head"><span class="ord">01</span><span class="lbl">Experience</span><span class="line"></span></div>
+
+            <article class="entry">
+              <div>
+                <h3>Master Printer</h3>
+                <div class="org"><a href="#">The Whittington Press</a></div>
+              </div>
+              <div class="when"><div class="d">2014 – Present</div><div class="loc">Gloucestershire</div></div>
+              <ul>
+                <li>Set and printed twelve limited editions, each under 300 copies, from hand-composed metal type.</li>
+                <li>Restored a 1923 Albion hand-press to full working order and trained four apprentices on it.</li>
+                <li>Built the studio's specimen archive — over 600 founts catalogued and digitised.</li>
+              </ul>
+            </article>
+
+            <article class="entry">
+              <div>
+                <h3>Studio Compositor</h3>
+                <div class="org"><a href="#">Gwasg Gregynog</a></div>
+              </div>
+              <div class="when"><div class="d">2006 – 2014</div><div class="loc">Powys, Wales</div></div>
+              <ul>
+                <li>Composed and proofed text for the press's fine-bound poetry editions.</li>
+                <li>Introduced a colour-register workflow that halved make-ready time.</li>
+              </ul>
+            </article>
+
+            <article class="entry">
+              <div>
+                <h3>Apprentice Bookbinder</h3>
+                <div class="org">Shepherds, Sangorski &amp; Sutcliffe</div>
+              </div>
+              <div class="when"><div class="d">2002 – 2006</div><div class="loc">London</div></div>
+              <ul>
+                <li>Trained in traditional case-binding, gold-tooling, and edge-gilding.</li>
+              </ul>
+            </article>
+          </section>
+
+          <section>
+            <div class="sec-head"><span class="ord">02</span><span class="lbl">Education</span><span class="line"></span></div>
+            <article class="entry">
+              <div>
+                <h3>MA, Book Arts &amp; Crafts</h3>
+                <div class="org" style="font-style:italic">Camberwell College of Arts</div>
+              </div>
+              <div class="when"><div class="d">1998 – 2002</div><div class="loc">London</div></div>
+            </article>
+          </section>
+        </main>
+
+        <aside class="rail">
+          <section>
+            <span class="lbl">Contact</span>
+            <a class="contact-row" href="mailto:eleanor@verso.press"><i class="ph-light ph-envelope-simple"></i>eleanor@verso.press</a>
+            <a class="contact-row" href="tel:+441453700200"><i class="ph-light ph-phone"></i>+44 1453 700 200</a>
+            <a class="contact-row" href="#"><i class="ph-light ph-map-pin"></i>Gloucestershire, UK</a>
+            <a class="contact-row" href="#"><i class="ph-light ph-globe-simple"></i>verso.press</a>
+          </section>
+
+          <section>
+            <span class="lbl">Craft</span>
+            <div class="tags">
+              <span class="tag on">Hand composition</span>
+              <span class="tag">Letterpress</span>
+              <span class="tag">Bookbinding</span>
+              <span class="tag">Type design</span>
+              <span class="tag">Restoration</span>
+              <span class="tag">Edge-gilding</span>
+            </div>
+          </section>
+
+          <section>
+            <span class="lbl">Languages</span>
+            <div class="lang"><span>English</span><span class="lvl">Native</span></div>
+            <div class="lang"><span>Welsh</span><span class="lvl">Fluent</span></div>
+            <div class="lang" style="border-bottom:0"><span>German</span><span class="lvl">Reading</span></div>
+          </section>
+
+          <section>
+            <div class="note">
+              <span class="lbl">Availability</span>
+              <p>Taking on two private commissions for autumn 2026.</p>
+            </div>
+          </section>
+        </aside>
+      </div>
+
+      <div class="colophon">
+        <span>Set in Cormorant &amp; EB Garamond · pressed in oxblood</span>
+        <span>Curriculum Vitæ · MMXXVI</span>
+      </div>
+    </article>
+  </div>
+
+  <script>
+    const root = document.getElementById('root');
+    document.querySelectorAll('.swatch').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const ink = btn.dataset.ink;
+        root.classList.remove('ink-oxblood','ink-navy','ink-forest');
+        root.classList.add('ink-' + ink);
+        document.querySelectorAll('.swatch').forEach(s => s.setAttribute('aria-pressed', s === btn));
+      });
+    });
+  </script>
+</body>
+</html>

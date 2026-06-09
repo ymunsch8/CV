@@ -1,0 +1,85 @@
+/* ============================================================
+   Verso — Color
+   A warm, aged-paper palette pressed with dark ink.
+   Base ramps first, semantic aliases below. Ink accents
+   ship in three "press" variants — oxblood (default), navy, forest.
+   ============================================================ */
+
+:root {
+  /* ---- Paper (warm cream stock, lightest → deepest) ---- */
+  --paper-0: #faf6ec;   /* page highlight / raised sheets   */
+  --paper-1: #f4ecd9;   /* base paper stock                 */
+  --paper-2: #ece1c8;   /* sunken panels / aged edge        */
+  --paper-3: #e2d4b6;   /* deckled edge / tabs              */
+  --paper-edge: #d8c8a4;/* torn / cut edge line             */
+
+  /* ---- Ink (warm near-black, ramps to faint) ---- */
+  --ink-900: #1f1a12;   /* darkest impression               */
+  --ink-800: #2c2618;
+  --ink-700: #423a28;   /* strong body                      */
+  --ink-600: #5b513b;
+  --ink-500: #756a50;   /* muted / secondary                */
+  --ink-400: #9b8f70;   /* faint / metadata                 */
+  --ink-300: #c0b393;   /* hairline on paper                */
+
+  /* ---- Ink accents (the three press colors) ---- */
+  --oxblood-700: #5e2018;
+  --oxblood-600: #7a2e22;  /* primary accent               */
+  --oxblood-500: #97473a;
+
+  --navy-700: #16304f;
+  --navy-600: #1f3a5f;
+  --navy-500: #355780;
+
+  --forest-700: #2c4632;
+  --forest-600: #3d5a40;
+  --forest-500: #57764f;
+
+  /* ---- Utility ---- */
+  --white: #fffdf8;
+  --shadow-warm: 31 26 18;   /* rgb channels of ink-900 for soft shadows */
+
+  /* ============================================================
+     Semantic aliases — reference these in components
+     ============================================================ */
+  --surface-page: var(--paper-1);
+  --surface-raised: var(--paper-0);
+  --surface-sunken: var(--paper-2);
+  --surface-deckle: var(--paper-3);
+
+  --text-strong: var(--ink-900);
+  --text-body: var(--ink-700);
+  --text-muted: var(--ink-500);
+  --text-faint: var(--ink-400);
+  --text-on-accent: var(--paper-0);
+
+  --rule: var(--ink-300);
+  --rule-strong: var(--ink-700);
+
+  /* Accent is swappable: override --accent-* on a scope to re-press the page */
+  --accent: var(--oxblood-600);
+  --accent-deep: var(--oxblood-700);
+  --accent-soft: var(--oxblood-500);
+
+  --link: var(--accent);
+  --link-hover: var(--accent-deep);
+
+  --selection-bg: #e8d9b0;
+}
+
+/* ---- Ink-press variants: add a class to <html>/<body> to re-ink ---- */
+.ink-navy {
+  --accent: var(--navy-600);
+  --accent-deep: var(--navy-700);
+  --accent-soft: var(--navy-500);
+}
+.ink-forest {
+  --accent: var(--forest-600);
+  --accent-deep: var(--forest-700);
+  --accent-soft: var(--forest-500);
+}
+.ink-oxblood {
+  --accent: var(--oxblood-600);
+  --accent-deep: var(--oxblood-700);
+  --accent-soft: var(--oxblood-500);
+}

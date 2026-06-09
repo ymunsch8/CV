@@ -1,0 +1,25 @@
+<!-- @dsCard group="Brand" viewport="700x200" name="Wordmark & monogram" subtitle="Verso — typographic letterpress mark" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--surface-page); padding: 0; display: flex; align-items: stretch; min-height: 200px; }
+  .mono { width: 200px; flex: none; display: grid; place-items: center; background: var(--accent); color: var(--paper-0); border-right: var(--border-hair); }
+  .mono span { font-family: var(--font-display); font-weight: 600; font-size: 5.5rem; line-height: 1; }
+  .word { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 36px; }
+  .mark { font-family: var(--font-display); font-weight: 600; font-size: 3.4rem; letter-spacing: .04em; color: var(--text-strong); line-height: 1; }
+  .rule { width: 54px; border-top: 2px solid var(--accent); margin: 12px 0; }
+  .tag { font-family: var(--font-label); font-variant: small-caps; letter-spacing: .26em; font-size: .8rem; color: var(--text-muted); }
+</style>
+</head>
+<body>
+  <div class="mono"><span>V</span></div>
+  <div class="word">
+    <div class="mark">Verso</div>
+    <div class="rule"></div>
+    <div class="tag">paper &middot; cv &middot; press</div>
+  </div>
+</body>
+</html>
