@@ -1,0 +1,99 @@
+/**
+ * Mise en page Tablette (601px – 1024px).
+ * Colonne gauche scrollable (profil, expériences, formations, projets)
+ * + bande fixe à droite (contact, compétences, etc.).
+ * Contrôles compacts empilés en bas à droite.
+ */
+
+.desk-wrap {
+  padding: clamp(12px, 3vw, 24px);
+  height: 100vh;
+  height: 100dvh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.controls--web { display: none !important; }
+
+.controls-stack { display: flex; }
+
+.sheet {
+  flex: 1;
+  min-height: 0;
+  max-width: none;
+  width: 100%;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.masthead {
+  flex-shrink: 0;
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-4);
+}
+
+.masthead .mono {
+  width: 64px;
+  height: 64px;
+  font-size: 2.6rem;
+}
+
+.layout {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr clamp(220px, 32vw, 280px);
+  gap: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.layout-main {
+  min-width: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: var(--space-5) var(--space-5) var(--space-5) 0;
+  border-right: var(--border-hair);
+}
+
+.main-scroll {
+  display: block;
+  width: 100%;
+}
+
+.main-scroll > section {
+  margin-bottom: var(--space-7);
+}
+
+.rail-strip {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-5) 0 var(--space-5) var(--space-5);
+  background: color-mix(in srgb, var(--surface-page) 92%, var(--accent) 8%);
+  position: sticky;
+  top: 0;
+  align-self: start;
+  max-height: 100%;
+}
+
+.colophon {
+  flex-shrink: 0;
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
+}
+
+.entry .when { text-align: left; }
+
+.entry {
+  grid-template-columns: 1fr;
+}
+
+.entry .when {
+  grid-column: 1;
+  text-align: left;
+  margin-top: var(--space-2);
+}

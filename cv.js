@@ -1,11 +1,11 @@
 /**
  * @file cv.js
  * @description Rendu dynamique du CV au format Verso — Paper CV (letterpress).
- * @version 0.1.5
+ * @version 0.2.0
  */
 
 /** @constant {string} Version de l'application CV. */
-const APP_VERSION = '0.1.5';
+const APP_VERSION = '0.2.0';
 
 /**
  * Données du CV — modifier ce bloc pour personnaliser le contenu.
@@ -13,44 +13,59 @@ const APP_VERSION = '0.1.5';
  */
 const cvData = {
   nom: 'Yohann Munsch',
-  titre: 'Développeur d\'applications — MSc Pro Epitech',
+  titre: 'Architecte logiciel, développeur d\'applications',
   initiales: 'YM',
   contact: {
-    email: 'yohann.munsch@epitech.eu',
-    tel: '+33 6 73 45 41 01',
-    lieu: 'Nancy, France',
+    email: 'yohann.munsch@gmail.com',
+    tel: '+33 6 80 01 01 79',
+    lieu: 'Savigny, France',
     linkedin: null,
     github: null,
     site: null
   },
   profil:
-    'Développeur d\'applications chez LapilleDev en alternance puis CDI, je conçois et maintiens des applications web et mobiles de bout en bout. J\'interviens sur les API REST, les bases MySQL, le déploiement Docker/Kubernetes et les pipelines CI/CD. Titulaire du MSc Pro à Epitech Nancy, j\'allie rigueur technique, documentation claire et sens du produit.',
+    'Architecte logiciel et développeur d\'applications, titulaire du titre RNCP de niveau 7 (Epitech Nancy). Chez LapilleDev, j\'ai conçu et maintenu des applications web et mobiles de bout en bout — API REST, bases MySQL et MongoDB, déploiement Docker/Kubernetes et pipelines CI/CD. J\'allie rigueur technique, documentation claire et sens du produit.',
   competences: [
-    'PHP', 'Symfony', 'Dart', 'Flutter', 'MySQL',
-    'Docker', 'Kubernetes', 'Git', 'GitHub',
-    'Linux', 'Apache', 'Firebase', 'CI/CD',
-    'API REST', 'DevOps', 'Java', 'Android', 'HTML', 'CSS'
+    {
+      theme: 'Backend & API',
+      skills: ['Express', 'Java', 'Symfony']
+    },
+    {
+      theme: 'Mobile',
+      skills: ['Android', 'Flutter']
+    },
+    {
+      theme: 'Frontend',
+      skills: ['CSS', 'HTML']
+    },
+    {
+      theme: 'Bases de données',
+      skills: ['MongoDB', 'MySQL']
+    },
+    {
+      theme: 'DevOps & infra',
+      skills: ['Apache', 'ArgoCD', 'CI/CD', 'Docker', 'Firebase', 'Kubernetes', 'Linux', 'Nginx']
+    },
+    {
+      theme: 'Outils',
+      skills: ['Figma', 'Git', 'GitHub', 'Lens']
+    }
   ],
-  competencesPrincipales: ['Symfony', 'Flutter', 'Docker'],
+  competencesPrincipales: ['Symfony', 'Flutter', 'Kubernetes'],
   experiences: [
     {
-      poste: 'Développeur d\'applications',
+      poste: 'Architecte logiciel / Développeur d\'applications',
       entreprise: 'LapilleDev',
       entrepriseUrl: null,
-      date: 'Sept. 2022 – Présent',
+      date: 'Sept. 2022 – 2026',
       lieu: 'Alternance puis CDI',
       description: null,
       projets: [
-        'Développement et maintenance d\'applications web et mobiles',
-        'Conception et développement d\'API REST',
-        'Administration et déploiement d\'applications avec Docker et Kubernetes',
-        'Mise en place et automatisation de pipelines CI/CD',
-        'Gestion et optimisation de bases de données MySQL',
-        'Intégration de services cloud et Firebase',
-        'Configuration et administration de serveurs Linux et Apache',
+        'Pilotage du projet GEN et développement d\'applications web et mobiles en autonomie',
         'Rédaction de documentation technique et support utilisateur',
-        'Participation à la conception d\'architectures logicielles et infrastructures',
-        'Gestion des déploiements en production et des évolutions applicatives'
+        'Administration de serveurs Linux, Apache et Nginx',
+        'Gestion et optimisation de bases de données MySQL et MongoDB',
+        'Suivi des déploiements en production et des évolutions applicatives'
       ]
     },
     {
@@ -70,55 +85,88 @@ const cvData = {
   ],
   formations: [
     {
-      diplome: 'MSc Pro — Epitech Technology',
+      diplome: 'Titre RNCP de niveau 7 : ARCHITECTE LOGICIEL, DEVELOPPEUR D\'APPLICATIONS',
       ecole: 'Epitech Technology',
       date: '2022 – 2025',
       lieu: 'Nancy',
-      details: 'Diplôme obtenu. Programme MSc Pro, pédagogie active, développement software.'
+      details: null,
+      points: [
+        'Projets tutorés en conditions réelles, avec des enjeux concrets',
+        'Études de cas et veille technologique',
+        'Frameworks et technologies alignés sur les pratiques en entreprise'
+      ]
     },
     {
       diplome: 'BTS SNIR',
       ecole: 'Lycée Henry Loritz',
       date: '2020 – 2022',
       lieu: 'Nancy',
-      details: 'Systèmes numériques, option informatique et réseaux. Projet informatique : application web et mobile.'
-    },
-    {
-      diplome: 'Bac Pro MELEC',
-      ecole: 'Lycée Pierre Mendès France',
-      date: '2017 – 2020',
-      lieu: 'Épinal',
-      details: 'Métier de l\'électricité et environnements connectés. Six stages en entreprise.'
+      details: null,
+      points: [
+        'Réseaux informatiques et télécommunications',
+        'Développement web : HTML et CSS',
+        'Programmation orientée objet : C, C++, C# et Java',
+        'Hardware, protocoles de communication et manipulation de matériel Raspberry Pi'
+      ]
     }
   ],
   projets: [
     {
-      nom: 'Générateur de formulaire de conformité client',
-      description: 'Conception algorithmique d\'un générateur de formulaires pour S.C.E.I.',
-      url: null
+      nom: 'GEN Project — LapilleDev',
+      sousTitre: 'Plateforme SaaS e-commerce et CMS',
+      url: null,
+      points: [
+        'Centralisation des données métier sur une plateforme web et mobile',
+        'Parcours e-commerce, CMS, gestion utilisateurs et personnalisation client',
+        'Services temps réel et synchronisation multi-clients',
+        'Stack Symfony, Flutter et Firebase sur Docker et Kubernetes',
+        'Pipelines CI/CD et déploiements via ArgoCD'
+      ]
     },
     {
-      nom: 'CV digital',
-      description: 'Création d\'un CV interactif en HTML, Materialize et CSS.',
-      url: null
+      nom: 'RS525 Project — LapilleDev',
+      sousTitre: 'API de facturation réglementaire',
+      url: null,
+      points: [
+        'Conception et implémentation d\'une API conforme à la réglementation RS525'
+      ]
     },
     {
-      nom: 'Application Java orientée objet',
-      description: 'Dialogue au sein d\'une application Java connectée à une base de données et un serveur.',
-      url: null
+      nom: 'Infrastructure Project — LapilleDev',
+      sousTitre: 'Fiabilisation des outils de production',
+      url: null,
+      points: [
+        'Sauvegardes automatiques des applications après chaque mise à jour',
+        'Organisation des serveurs pour faire tourner les services de façon stable',
+        'Mises en production sans coupure pour les utilisateurs',
+        'Suivi continu pour vérifier que tout fonctionne correctement'
+      ]
     },
     {
-      nom: 'Bases de données MariaDB',
-      description: 'Conception et administration de bases MariaDB (Wamp, Lamp, Xamp).',
-      url: null
+      nom: 'Application mobile de documentation technique — S.C.E.I.',
+      sousTitre: 'Formation sur la chaîne de production',
+      url: null,
+      points: [
+        'Génération de PDF',
+        'Mises à jour automatisées',
+        'Lecture d\'arborescence de fichiers distants'
+      ]
+    },
+    {
+      nom: 'Générateur de formulaires conformité — S.C.E.I.',
+      sousTitre: 'Automatisation des formulaires métier',
+      url: null,
+      points: [
+        'Formulaires dynamiques adaptés à chaque produit pour la conformité client'
+      ]
     }
   ],
   langues: [
     { nom: 'Français', niveau: 'Langue maternelle' },
     { nom: 'Anglais', niveau: 'Niveau A2' }
   ],
-  interets: ['Lecture de manga', 'Jeux vidéo', 'Hardware'],
-  disponibilite: null
+  interets: ['Hardware', 'Jeux vidéo', 'Lecture de manga'],
+  disponibilite: 'Je recherche un poste de développeur junior en développement mobile, avec une forte marge d\'évolution.'
 };
 
 /**
@@ -148,13 +196,16 @@ const cvData = {
  * @property {string} ecole
  * @property {string} date
  * @property {string|null} lieu
- * @property {string|null} details
+ * @property {string|null} details - Détail court (une puce).
+ * @property {string[]|null} points - Plusieurs points de détail.
  */
 
 /**
  * @typedef {Object} CvProjet
  * @property {string} nom
- * @property {string} description
+ * @property {string|null} sousTitre - Sous-titre ou accroche (ex. type de plateforme).
+ * @property {string|null} description - Description courte (projet simple, une puce).
+ * @property {string[]|null} points - Liste de réalisations (projet détaillé).
  * @property {string|null} url
  */
 
@@ -165,13 +216,19 @@ const cvData = {
  */
 
 /**
+ * @typedef {Object} CvCompetenceGroup
+ * @property {string} theme - Libellé de la thématique (petites capitales à l'affichage).
+ * @property {string[]} skills - Compétences associées à la thématique.
+ */
+
+/**
  * @typedef {Object} CvData
  * @property {string} nom
  * @property {string} titre
  * @property {string|null} initiales
  * @property {CvContact} contact
  * @property {string} profil
- * @property {string[]} competences
+ * @property {CvCompetenceGroup[]} competences
  * @property {string[]|null} competencesPrincipales
  * @property {CvExperience[]} experiences
  * @property {CvFormation[]} formations
@@ -277,8 +334,14 @@ function renderExperience(exp) {
  * @returns {string} Fragment HTML `<article class="entry">`.
  */
 function renderFormation(formation) {
-  const detailsHtml = formation.details
-    ? `<ul><li>${escapeHtml(formation.details)}</li></ul>`
+  const bullets = formation.points?.length
+    ? formation.points
+    : formation.details
+      ? [formation.details]
+      : [];
+
+  const listHtml = bullets.length
+    ? `<ul>${bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`
     : '';
 
   const lieuHtml = formation.lieu
@@ -295,7 +358,7 @@ function renderFormation(formation) {
         <div class="d">${escapeHtml(formation.date)}</div>
         ${lieuHtml}
       </div>
-      ${detailsHtml}
+      ${listHtml}
     </article>
   `;
 }
@@ -308,15 +371,27 @@ function renderFormation(formation) {
 function renderProjet(projet) {
   const orgHtml = projet.url
     ? `<div class="org"><a href="${escapeHtml(projet.url)}" target="_blank" rel="noopener">${escapeHtml(projet.url.replace(/^https?:\/\//, ''))}</a></div>`
+    : projet.sousTitre
+      ? `<div class="org" style="font-style:italic">${escapeHtml(projet.sousTitre)}</div>`
+      : '';
+
+  const bullets = projet.points?.length
+    ? projet.points
+    : projet.description
+      ? [projet.description]
+      : [];
+
+  const listHtml = bullets.length
+    ? `<ul>${bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`
     : '';
 
   return `
-    <article class="entry">
-      <div>
-        <h3>${escapeHtml(projet.nom)}</h3>
+    <article class="entry entry--projet">
+      <div class="entry__head">
+        <h3 class="entry__title">${escapeHtml(projet.nom)}</h3>
         ${orgHtml}
       </div>
-      <ul><li>${escapeHtml(projet.description)}</li></ul>
+      ${listHtml}
     </article>
   `;
 }
@@ -390,25 +465,61 @@ function renderContactSection(contact) {
 }
 
 /**
- * Rend les tags de compétences.
- * @param {string[]} competences - Liste complète des compétences.
- * @param {string[]|null} principales - Compétences mises en avant (classe `.on`).
- * @returns {string} Fragment HTML de la section compétences.
+ * Trie une liste de libellés par ordre alphabétique (locale fr).
+ * @param {string[]} items - Éléments à trier.
+ * @returns {string[]} Copie triée.
  */
-function renderCompetencesSection(competences, principales) {
-  const highlighted = principales ?? competences.slice(0, 3);
+function sortAlphabetically(items) {
+  return [...items].sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' }));
+}
 
-  const tags = competences
+/**
+ * Rend une liste de tags de compétences.
+ * @param {string[]} skills - Compétences à afficher.
+ * @param {string[]} highlighted - Compétences mises en avant (classe `.on`).
+ * @returns {string} Fragment HTML des tags.
+ */
+function renderSkillTags(skills, highlighted) {
+  return skills
     .map((skill) => {
       const isOn = highlighted.includes(skill) ? ' on' : '';
       return `<span class="tag${isOn}">${escapeHtml(skill)}</span>`;
     })
     .join('');
+}
+
+/**
+ * Extrait toutes les compétences depuis les groupes thématiques.
+ * @param {CvCompetenceGroup[]} groups - Groupes de compétences.
+ * @returns {string[]} Liste aplatie des compétences.
+ */
+function flattenCompetences(groups) {
+  return groups.flatMap((group) => group.skills);
+}
+
+/**
+ * Rend les compétences regroupées par thématique.
+ * @param {CvCompetenceGroup[]} groups - Groupes thématiques.
+ * @param {string[]|null} principales - Compétences mises en avant (classe `.on`).
+ * @returns {string} Fragment HTML de la section compétences.
+ */
+function renderCompetencesSection(groups, principales) {
+  const allSkills = flattenCompetences(groups);
+  const highlighted = principales ?? allSkills.slice(0, 3);
+
+  const groupHtml = groups
+    .map((group) => `
+      <div class="skill-group">
+        <span class="skill-group__theme">${escapeHtml(group.theme)}</span>
+        <div class="tags">${renderSkillTags(sortAlphabetically(group.skills), highlighted)}</div>
+      </div>
+    `)
+    .join('');
 
   return `
     <section>
       <span class="lbl">Compétences</span>
-      <div class="tags">${tags}</div>
+      <div class="skill-groups">${groupHtml}</div>
     </section>
   `;
 }
@@ -445,7 +556,7 @@ function renderLanguesSection(langues) {
  * @returns {string} Fragment HTML de la section centres d'intérêt.
  */
 function renderInteretsSection(interets) {
-  const tags = interets
+  const tags = sortAlphabetically(interets)
     .map((interet) => `<span class="tag">${escapeHtml(interet)}</span>`)
     .join('');
 
@@ -474,23 +585,53 @@ function renderDisponibiliteSection(message) {
 }
 
 /**
- * Rend la barre de contrôle (encre + téléchargement PDF via impression).
- * @returns {string} Fragment HTML des contrôles.
+ * Boutons de sélection d'encre (oxblood, navy, forest).
+ * @param {string} extraClass - Classe CSS additionnelle sur chaque pastille.
+ * @returns {string} Fragment HTML des pastilles d'encre.
  */
-function renderControls() {
+function renderInkSwatches(extraClass) {
+  const cls = extraClass ? ` swatch ${extraClass}` : ' swatch';
   return `
-    <div class="controls">
+    <button class="${cls.trim()}" data-ink="oxblood" aria-pressed="true"
+      style="background:#7a2e22;color:#7a2e22" title="Oxblood" type="button"></button>
+    <button class="${cls.trim()}" data-ink="navy" aria-pressed="false"
+      style="background:#1f3a5f;color:#1f3a5f" title="Navy" type="button"></button>
+    <button class="${cls.trim()}" data-ink="forest" aria-pressed="false"
+      style="background:#3d5a40;color:#3d5a40" title="Forest" type="button"></button>
+  `;
+}
+
+/**
+ * Barre de contrôle web (encre horizontale + téléchargement).
+ * @returns {string} Fragment HTML des contrôles desktop.
+ */
+function renderControlsWeb() {
+  return `
+    <div class="controls controls--web">
       <div class="press-switch">
         <span class="lbl">Encre</span>
-        <button class="swatch" data-ink="oxblood" aria-pressed="true"
-          style="background:#7a2e22;color:#7a2e22" title="Oxblood" type="button"></button>
-        <button class="swatch" data-ink="navy" aria-pressed="false"
-          style="background:#1f3a5f;color:#1f3a5f" title="Navy" type="button"></button>
-        <button class="swatch" data-ink="forest" aria-pressed="false"
-          style="background:#3d5a40;color:#3d5a40" title="Forest" type="button"></button>
+        ${renderInkSwatches('')}
       </div>
-      <button class="btn-dl" type="button" id="btn-print">
+      <button class="btn-dl btn-print" type="button">
         <i class="ph-bold ph-download-simple"></i>Télécharger le CV
+      </button>
+    </div>
+  `;
+}
+
+/**
+ * Contrôles compacts tablette / mobile : pastilles empilées + bouton flottant.
+ * @returns {string} Fragment HTML des contrôles compacts.
+ */
+function renderControlsCompact() {
+  return `
+    <div class="controls-stack" aria-label="Encre et téléchargement">
+      <div class="ink-stack">
+        ${renderInkSwatches('swatch--stack')}
+      </div>
+      <button class="btn-dl btn-dl--compact btn-print" type="button">
+        <i class="ph-bold ph-download-simple"></i>
+        <span class="btn-dl__label">Télécharger</span>
       </button>
     </div>
   `;
@@ -528,7 +669,8 @@ function renderCV(data) {
   ].join('');
 
   root.innerHTML = `
-    ${renderControls()}
+    ${renderControlsWeb()}
+    ${renderControlsCompact()}
     <article class="paper sheet">
       <header class="masthead">
         <div>
@@ -538,27 +680,29 @@ function renderCV(data) {
         <div class="mono" aria-hidden="true">${escapeHtml(initiales)}</div>
       </header>
 
-      <div class="grid">
-        <main>
-          <section>
-            ${renderSectionHead('00', 'Profil')}
-            <p class="lead">${escapeHtml(data.profil)}</p>
-          </section>
+      <div class="layout">
+        <div class="layout-main">
+          <main class="main-scroll">
+            <section>
+              ${renderSectionHead('00', 'Profil')}
+              <p class="lead">${escapeHtml(data.profil)}</p>
+            </section>
 
-          <section>
-            ${renderSectionHead('01', 'Expérience')}
-            ${experiencesHtml}
-          </section>
+            <section>
+              ${renderSectionHead('01', 'Expérience')}
+              ${experiencesHtml}
+            </section>
 
-          <section>
-            ${renderSectionHead('02', 'Formation')}
-            ${formationsHtml}
-          </section>
+            <section>
+              ${renderSectionHead('02', 'Formation')}
+              ${formationsHtml}
+            </section>
 
-          ${projetsHtml}
-        </main>
+            ${projetsHtml}
+          </main>
+        </div>
 
-        <aside class="rail">
+        <aside class="rail rail-strip">
           ${railSections}
         </aside>
       </div>
@@ -597,8 +741,9 @@ function initInkSwitcher(root) {
  * @returns {void}
  */
 function initPrintButton() {
-  const btn = document.getElementById('btn-print');
-  if (btn) btn.addEventListener('click', () => window.print());
+  document.querySelectorAll('.btn-print').forEach((btn) => {
+    btn.addEventListener('click', () => window.print());
+  });
 }
 
 /**

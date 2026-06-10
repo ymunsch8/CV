@@ -1,0 +1,39 @@
+/**
+ * Mise en page Web (≥ 1025px) — format classique feuille + grille deux colonnes.
+ */
+
+.controls--web {
+  max-width: var(--page-width);
+  margin: 0 auto var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.controls-stack { display: none !important; }
+
+.sheet {
+  max-width: var(--page-width);
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.75rem, 5vw, 4rem);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 15rem;
+  gap: var(--space-7);
+}
+
+.layout-main,
+.rail-strip {
+  min-width: 0;
+}
+
+.main-scroll {
+  display: block;
+}
+
+.rail-strip {
+  align-self: start;
+}
