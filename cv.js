@@ -166,7 +166,7 @@ const cvData = {
     { nom: 'Anglais', niveau: 'Niveau A2' }
   ],
   interets: ['Hardware', 'Jeux vidéo', 'Lecture de manga'],
-  disponibilite: 'Je recherche un poste de développeur junior en développement mobile, avec une forte marge d\'évolution.'
+  disponibilite: 'Je recherche un poste de développeur confirmé en développement d\'applications.'
 };
 
 /**
