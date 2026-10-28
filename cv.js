@@ -20,7 +20,7 @@ const cvData = {
     tel: '+33 6 80 01 01 79',
     lieu: 'Savigny, France',
     linkedin: null,
-    github: null,
+    github: 'https://github.com/ymunsch8',
     site: null
   },
   profil:
@@ -55,9 +55,22 @@ const cvData = {
   experiences: [
     {
       poste: 'Architecte logiciel / Développeur d\'applications',
+      entreprise: 'S.C.E.I.',
+      entrepriseUrl: null,
+      date: 'Août – Sept. 2026',
+      lieu: 'Charmes',
+      description: null,
+      projets: [
+        'Installation d\'outils CLI sur le parc utilisateur',
+        'Installation et mise en service d\'une application desktop',
+        'Cadrage du développement d\'un projet déjà en cours : UI/UX, technique, parcours utilisateur'
+      ]
+    },
+    {
+      poste: 'Architecte logiciel / Développeur d\'applications',
       entreprise: 'LapilleDev',
       entrepriseUrl: null,
-      date: 'Sept. 2022 – 2026',
+      date: 'Sept. 2022 – Juil. 2026',
       lieu: 'Alternance puis CDI',
       description: null,
       projets: [
@@ -85,7 +98,7 @@ const cvData = {
   ],
   formations: [
     {
-      diplome: 'Titre RNCP de niveau 7 : ARCHITECTE LOGICIEL, DEVELOPPEUR D\'APPLICATIONS',
+      diplome: 'Titre RNCP de niveau 7 : Architecte de systèmes d\'information',
       ecole: 'Epitech Technology',
       date: '2022 – 2025',
       lieu: 'Nancy',
